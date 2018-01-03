@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Curriculum Vitae</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/favicon.png"/>
+</head>
+<body>
+		<a name="ini"></a> <!--ANCLA-->
+		<div id="header-inner">
+			<nav id="navbar">
+				<div id="container" class="vertical-align-container">
+					<ul id="uli">
+						<li class="link"><a href="#ini" id="inic">Inicio</a></li>
+						<li class="link"><a href="#dat" id="dato">Datos</a></li>
+						<li class="link"><a href="#exp" id="expe">Experiencia laboral</a></li>
+						<li class="link"><a href="#cono" id="conoc">Conocimientos</a></li>
+						<li class="link"><a href="#cont" id="conta">Contacto</a></li>
+					</ul>
+				</div>
+				<div style="clear: both"></div>
+			</nav>
+		</div>
+		<div class="responsive-bar">
+			<h4 class="menu">MENÚ</h4>
+				<div style="clear: both"></div>
+		</div>
+	<article id="banner">
+			<img src="img/logobyn.png" alt="logo">
+		</div>
+	</article>
+	<section>
+			<a name="dat"></a> <!--ANCLA-->
+		<article id="datos">
+		<h2 id="Tdatos">Datos personales:</h2>
+			<ul>
+				<li>Claudio Gabriel Palacios</li>
+				<li>Buenos Aires - Castelar </li>
+				<li>10/11/1997</li>
+			</ul>
+
+		</article>
+	</section>
+		<section>
+			<a name="est"></a> <!--ANCLA-->
+			<article id="educacion">
+			<h2 id="Teducacion">Formación académica:</h2>
+				<ul>
+					<li><h3>2016-Actualidad:</h3> Tecnicatura Superior en Programación en Universidad Tecnológica Nacional de Haedo. </li>
+					<li><h3>2002-2015:</h3>Bachiller en Economía y Gestión de las Organizaciones en Escuela Incorporada Modelo José Manuel Estrada.</li>
+				</ul>
+			</article>
+		</section>
+		<section>
+			<a name="exp"></a> <!--ANCLA-->
+			<article id="laboral">
+			<h2 id="Tlaboral">Experiencia laboral:</h2>
+				<ul>
+					<li><h3>Enero/2016-Diciembre/2016:</h3> Empleado de negocio.Atención al público en mostrador.
+					</li>
+				</ul>
+			</article>
+		</section>
+	<section>
+			<a name="cono"></a> <!--ANCLA-->
+			<article id="conocimientos">
+		<h2 id="Tconocimientos">Conocimientos:</h2>
+			<ul id="conoc">
+				<li><h3>C</h3>Intermedio</li>
+				<li><h3>C++</h3> Intermedio</li>
+				<li><h3>C#</h3> Básico</li>
+				<li><h3>Java</h3> Básico</li>
+				<li><h3>JavaScript</h3> Básico</li>
+				<li><h3>PHP</h3> Básico</li>
+				<li><h3>HTML5</h3> Intermedio</li>
+				<li><h3>Css Sass</h3> Intermedio</li>
+				<li><h3>Diseño Responsive</h3> </li>
+			</ul>
+		</article>
+	</section>
+	<section>
+		<a name="idi"></a> <!--ANCLA-->
+		<article id="idiomas">
+		<h2 id="Tidiomas">Idiomas:</h2>
+			<ul>
+				<li><h3>Inglés:</h3><h3 class="under">Escrito:</h3>Avanzado.<h3 class="under">Oral:</h3>Básico.
+				</li>
+			</ul>
+		</article>
+	</section>
+	<section>
+			<a name="cont"></a> <!--ANCLA-->
+		<article id="contacto">
+		<h2 id="Tcontacto">Contacto:</h2>
+			<ul>
+				<li>(011) 2082 4070 /  (011) 1133919442</li>
+				<li>palacios.c.gabriel@gmail.com</li>
+			</ul>
+		</article>
+	</section>
+
+
+<script type="text/javascript">
+//****************RESPONSIVE NAVBAR****************************//
+$(document).ready(function(){
+	$(".menu").on("click", function(){
+		$("nav").slideToggle();
+	})
+})
+//****************DECLARACION****************************//
+var navbar = document.getElementById("navbar");
+var mq = window.matchMedia("(min-width: 1201px)");
+var SIZE_TRESHOLD0 = "0";
+var SIZE_TRESHOLD1 = "620"; //INICIO
+var SIZE_TRESHOLD2 = "1420"; //DATOS
+var SIZE_TRESHOLD3 = "1710"; //EXPERIENCIA
+var SIZE_TRESHOLD4= "1900"; //CONOCIMIENTOS
+//****************SMALL NAVBAR****************************//
+function Scroll() { 
+    var SIZE_NAV_CLASS = "small";
+    var SIZE_TRESHOLD = "500";
+	var currentYpos = window.pageYOffset;
+
+	if(mq.matches){ 
+		if(currentYpos >= SIZE_TRESHOLD) {
+			navbar.classList.add(SIZE_NAV_CLASS);
+		} else {
+			navbar.classList.remove(SIZE_NAV_CLASS);
+		}
+	}
+}
+//*****************STICKY NAVBAR***************//
+function Navbar() {
+	var sticky = navbar.offsetTop;
+	var STICKY_CLASS = "sticky";
+
+	if(mq.matches){ 
+		if (window.pageYOffset >= sticky) {
+			navbar.classList.add(STICKY_CLASS);
+		} else {
+			navbar.classList.remove(STICKY_CLASS);
+		}
+	}
+}
+//*****************EFFECT DISAPPEAR NAVBAR***************//
+function Disappear() { 
+	var ini = document.getElementById("inic");
+	var dat = document.getElementById("dato");
+	var exp = document.getElementById("expe");
+	var cono = document.getElementById("conoc"); 
+	var con = document.getElementById("conta");
+    var OPACITY_LI_CLASS = "fadeOff";
+    var BOLD_LI_CLASS = "boldOn";
+   
+
+	var currentYpos = window.pageYOffset;
+
+	if(currentYpos >= SIZE_TRESHOLD1 ) {  //INICIO
+		ini.classList.add(OPACITY_LI_CLASS);
+	} else {
+		ini.classList.remove(OPACITY_LI_CLASS);
+	}
+
+	if(currentYpos >= SIZE_TRESHOLD2 ) {  //DATOS
+		dat.classList.add(OPACITY_LI_CLASS);
+	} else {
+		dat.classList.remove(OPACITY_LI_CLASS);
+	}
+
+	if(currentYpos >= SIZE_TRESHOLD1  && currentYpos < SIZE_TRESHOLD2  ||  currentYpos >= SIZE_TRESHOLD3) {  //EXPERIENCIA
+		exp.classList.add(OPACITY_LI_CLASS);
+	
+	} else {
+		exp.classList.remove(OPACITY_LI_CLASS);
+	}
+
+	if(currentYpos >= SIZE_TRESHOLD1  && currentYpos < SIZE_TRESHOLD3  ||  currentYpos >= SIZE_TRESHOLD4) {  //CONOCIMIENTOS
+		cono.classList.add(OPACITY_LI_CLASS);
+	
+	} else {
+		cono.classList.remove(OPACITY_LI_CLASS);
+	}
+
+	if(currentYpos >= SIZE_TRESHOLD1  && currentYpos < SIZE_TRESHOLD4){  //CONTACTO
+		con.classList.add(OPACITY_LI_CLASS);
+	
+	} else {
+		con.classList.remove(OPACITY_LI_CLASS);
+	}
+}
+
+window.onscroll = function() { Navbar() };
+window.addEventListener("scroll", Scroll);
+window.addEventListener("scroll", Disappear);
+
+
+</script>
+</body>
+</html>
